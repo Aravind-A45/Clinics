@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MEDICAL DETAILS</title>
+</head>
+<body>
+  <form method="post">
+    {% csrf_token %}
+    <div class="txt_field">
+      <input type="text" name="name" required>
+      <label>Name</label>
+    </div>
+    <tr>
+      <td>
+        Do you have any medical issues : 
+      </td>
+    </tr>
+    <select id="dropdown">
+      <option value="No">No</option>
+      <option value="Yes">Yes</option>
+    </select>
+  <div id="details" style="display:none;">
+    <table>
+        <div class="txt_field">
+          <input type="text" name="hospital_name" required>
+          <label>Hospital Name</label>
+        </div>
+        <div class="txt_field">
+          <input type="text" name="hospital_no" required>
+          <label>Hospital No</label>
+        </div>
+        <div class="txt_field">
+          <input type="text" name="guardian_name" required>
+          <label>Guardian Name</label>
+        </div>
+        <div class="txt_field">
+          <input type="text" name="guardian_no" required>
+          <label>Guardian No</label>
+        </div>
+        <div class="txt_field">
+          <input type="text" name="address" required>
+          <label>Address</label>
+        </div>
+        <input type="submit" value="Submit">
+      </form>
+    </table>
+  </div>
+  
+  <script>
+    var dropdown = document.getElementById("dropdown");
+    var details = document.getElementById("details");
+  
+    dropdown.addEventListener("change", function() {
+      if (dropdown.value === "Yes") {
+        details.style.display = "block";
+      } else {
+        details.style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>
